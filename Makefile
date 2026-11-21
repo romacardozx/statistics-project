@@ -19,9 +19,5 @@ data: ## Muestra mis filas del csv (481-640)
 lint: ## Revisa el estilo (necesita lintr)
 	Rscript -e 'lintr::lint("main.R")'
 
-zip: report ## Genera el zip del proyecto para entregar
-	@rm -f $(ZIP_NAME)
-	zip -r $(ZIP_NAME) . -x '.claude/*' '.antigravitycli/*' '.git/*' '*.zip'
-
 clean: ## Borra los graficos y salidas
 	rm -rf output Rplots.pdf *.zip
