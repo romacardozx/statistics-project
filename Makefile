@@ -1,4 +1,6 @@
-.PHONY: help run report data lint clean
+.PHONY: help run report data lint zip clean
+
+ZIP_NAME := tp-contaminacion-cardozo.zip
 
 help: ## Lista los comandos
 	@grep -E '^[a-z]+:.*## ' Makefile | awk -F':.*## ' '{printf "  %-8s %s\n", $$1, $$2}'
@@ -17,5 +19,9 @@ data: ## Muestra mis filas del csv (481-640)
 lint: ## Revisa el estilo (necesita lintr)
 	Rscript -e 'lintr::lint("main.R")'
 
+zip: report ## Genera el zip del proyecto para entregar
+	@rm -f $(ZIP_NAME)
+	zip -r $(ZIP_NAME) . -x '.claude/*' '.antigravitycli/*' '.git/*' '*.zip'
+
 clean: ## Borra los graficos y salidas
-	rm -rf output Rplots.pdf
+	rm -rf output Rplots.pdf *.zip

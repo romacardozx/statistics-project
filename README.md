@@ -1,7 +1,8 @@
 # statistics-project
 Statistics course project - UNSAM
 
-Roman Cardozo: Fila 481 a 640
+---
+## Consigna
 
 Se quiere predecir la contaminación ambiental en una región urbana, medida en concentración de residuos contaminantes. La misma puede depender de la cantidad de vehículos circulantes, la velocidad del viento, y la temperatura y humedad ambiente
 
@@ -56,3 +57,6 @@ Con 280000 vehículos, 31 °C, viento de 50 km/h y humedad 60%:
 **concentración ≈ 69.25** (intervalo de predicción 95%: 64.19 a 74.31)
 
 El viento de 50 está casi en el máximo de mis datos (50.6), así que la predicción está en el borde del rango.
+
+Roman Cardozo: Fila 481 a 640
+
