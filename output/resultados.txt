@@ -1,0 +1,122 @@
+ concentracion   miles_vehiculos  temperatura    velocidad_viento
+ Min.   :24.43   Min.   :109.3   Min.   :15.55   Min.   :11.91   
+ 1st Qu.:38.55   1st Qu.:194.3   1st Qu.:22.05   1st Qu.:24.03   
+ Median :42.60   Median :290.3   Median :23.65   Median :29.54   
+ Mean   :44.47   Mean   :292.9   Mean   :23.83   Mean   :30.07   
+ 3rd Qu.:49.85   3rd Qu.:381.0   3rd Qu.:25.70   3rd Qu.:34.69   
+ Max.   :79.60   Max.   :499.4   Max.   :29.68   Max.   :50.60   
+    humedad     
+ Min.   :50.24  
+ 1st Qu.:60.90  
+ Median :70.05  
+ Mean   :69.73  
+ 3rd Qu.:78.75  
+ Max.   :89.88  
+
+Call:
+lm(formula = concentracion ~ miles_vehiculos + temperatura + 
+    velocidad_viento + humedad, data = datos)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-7.894 -1.947 -0.318  1.547 42.254 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      -0.403376   4.769447  -0.085    0.933    
+miles_vehiculos   0.031311   0.003137   9.980   <2e-16 ***
+temperatura       0.220534   0.155999   1.414    0.159    
+velocidad_viento  0.995862   0.045086  22.088   <2e-16 ***
+humedad           0.007222   0.032805   0.220    0.826    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4.476 on 155 degrees of freedom
+Multiple R-squared:  0.7924,	Adjusted R-squared:  0.7871 
+F-statistic: 147.9 on 4 and 155 DF,  p-value: < 2.2e-16
+
+    concentracion miles_vehiculos temperatura velocidad_viento humedad
+583      79.60258         205.168        26.7            24.98   77.98
+
+Call:
+lm(formula = concentracion ~ miles_vehiculos + temperatura + 
+    velocidad_viento + humedad, data = datos_sin_outliers)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7.5594 -1.7222 -0.0117  1.6491  8.9724 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)       2.86624    3.07333   0.933    0.352    
+miles_vehiculos   0.03308    0.00202  16.374   <2e-16 ***
+temperatura       0.08454    0.10068   0.840    0.402    
+velocidad_viento  1.01409    0.02900  34.964   <2e-16 ***
+humedad          -0.01234    0.02113  -0.584    0.560    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.877 on 154 degrees of freedom
+Multiple R-squared:  0.9071,	Adjusted R-squared:  0.9047 
+F-statistic: 375.9 on 4 and 154 DF,  p-value: < 2.2e-16
+
+
+Call:
+lm(formula = concentracion ~ miles_vehiculos + temperatura + 
+    velocidad_viento + I(velocidad_viento^2) + humedad, data = datos_sin_outliers)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.4585 -1.5359  0.2908  1.5111  7.6768 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)           19.505026   3.311198   5.891 2.36e-08 ***
+miles_vehiculos        0.033254   0.001699  19.570  < 2e-16 ***
+temperatura            0.119316   0.084797   1.407    0.161    
+velocidad_viento      -0.208477   0.153978  -1.354    0.178    
+I(velocidad_viento^2)  0.019409   0.002414   8.041 2.26e-13 ***
+humedad               -0.005512   0.017790  -0.310    0.757    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.42 on 153 degrees of freedom
+Multiple R-squared:  0.9347,	Adjusted R-squared:  0.9326 
+F-statistic:   438 on 5 and 153 DF,  p-value: < 2.2e-16
+
+
+Call:
+lm(formula = concentracion ~ miles_vehiculos + velocidad_viento + 
+    I(velocidad_viento^2), data = datos_sin_outliers)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.0762 -1.6726  0.3927  1.4803  7.7483 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)           21.991394   2.405448   9.142 3.26e-16 ***
+miles_vehiculos        0.033157   0.001698  19.525  < 2e-16 ***
+velocidad_viento      -0.204033   0.153705  -1.327    0.186    
+I(velocidad_viento^2)  0.019270   0.002408   8.002 2.68e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.42 on 155 degrees of freedom
+Multiple R-squared:  0.9338,	Adjusted R-squared:  0.9325 
+F-statistic:   729 on 3 and 155 DF,  p-value: < 2.2e-16
+
+Analysis of Variance Table
+
+Model 1: concentracion ~ miles_vehiculos + velocidad_viento + I(velocidad_viento^2)
+Model 2: concentracion ~ miles_vehiculos + temperatura + velocidad_viento + 
+    I(velocidad_viento^2) + humedad
+  Res.Df   RSS Df Sum of Sq      F Pr(>F)
+1    155 907.9                           
+2    153 895.8  2    12.105 1.0337 0.3581
+                           df      AIC
+modelo_lineal_sin_outliers  6 794.1531
+modelo_cuadratico           7 740.1030
+modelo_final                5 738.2371
+       fit      lwr      upr
+1 69.24892 64.18515 74.31269
